@@ -10,13 +10,23 @@ import { useState } from "react";
 const Pricing = ({ pricing }: { pricing: IPackage[] }) => {
   const [loadingId, setLoadingId] = useState<number | null>(null);
   const getFileTypesDisplay = (types: string[]) => {
-    if (Array.isArray(types)) {
-      if (types.length > 3) {
-        return `${types.slice(0, 3).join(", ")} +${types.length - 3}`;
-      }
-      return types.join(", ");
+    if (!Array.isArray(types)) return types;
+
+    // convert png/jpg extensions back to proper MIME
+    const displayTypes = types.map((type) => {
+      const lower = type.toLowerCase();
+      if (lower === "png") return "image/png";
+      if (lower === "jpg" || lower === "jpeg") return "image/jpeg";
+      return type; // keep original
+    });
+
+    if (displayTypes.length > 3) {
+      return `${displayTypes.slice(0, 3).join(", ")} +${
+        displayTypes.length - 3
+      }`;
     }
-    return types;
+
+    return displayTypes.join(", ");
   };
 
   const getPlanIcon = (planName: string) => {
