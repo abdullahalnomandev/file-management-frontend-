@@ -58,7 +58,7 @@ function Login() {
       console.log("res", res?.data?.access_token);
       if (res && res.data.access_token) {
         sessionStorage.setItem(authKey, res?.data.access_token);
-        router.push("/user");
+        router.push("/");
         setLoading(false);
       }
       form.resetFields();

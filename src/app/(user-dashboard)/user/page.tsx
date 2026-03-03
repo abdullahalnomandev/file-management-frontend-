@@ -1,22 +1,33 @@
-// app/partner-dashboard/page.tsx
 import UserDashbaord from "@/components/dashboard/user";
+import { apiFetch } from "@/lib/api/api-fech";
+import { IFolder } from "@/types";
 
-export default async function userDashboardPage() {
-  // const offersQuery = new URLSearchParams({ page: "1", limit: "150" });
+export default async function UserDashboardPage() {
+  const [folder, file] = await Promise.all([
+    apiFetch<{ data: { data: IFolder[] } | null }>(
+      `/folder`,
+      {
+        method: "GET",
+        next: { tags: ["folders"] }, // ✅ validated cache key
+      },
+      "server"
+    ),
 
-  // const [exclusiveOffer] = await Promise.all([
-  //   apiFetch<{ data: { data: Offer[] } | null }>(
-  //     `/exclusive-offer/my-offers?${offersQuery.toString()}`,
-  //     { method: "GET", cache: "force-cache" },
-  //     "server"
-  //   ),
-  // ]);
+    apiFetch<{ data: { data: IFolder[] } | null }>(
+      `/file`,
+      {
+        method: "GET",
+        next: { tags: ["file"] }, // ✅ validated cache key
+      },
+      "server"
+    ),
+  ]) as [{ data: { data: IFolder[] } | null }, { data: { data: IFolder[] } | null }];
 
-  //   const offers: Offer[] = exclusiveOffer?.data?.data || [];
-
+   console.log("file", file);
   return (
-    <>
-      <UserDashbaord />
-    </>
+    <UserDashbaord
+      folders={folder?.data ?? []}
+      files={file?.data ?? []}
+    />
   );
 }

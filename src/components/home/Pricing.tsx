@@ -70,7 +70,6 @@ const Pricing = ({ pricing }: { pricing: IPackage[] }) => {
     );
     try {
       await updatePrice;
-      message.success("Profile updated successfully!");
       router.push("/user");
       setLoadingId(null);
     } catch (error) {
