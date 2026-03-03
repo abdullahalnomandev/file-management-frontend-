@@ -1,10 +1,6 @@
 "use client";
 import { Cloud, LogOut, User } from "lucide-react";
 import Link from "next/link";
-import alphaLogo from "@/assets/alpha-logo.png"; // Update this path to your actual logo
-import alpha from "@/assets/image 2.png";
-import Image from "next/image";
-import { Button } from "antd";
 import { authKey } from "@/constants/storageKey";
 import { removeAccessTokenToCookie } from "@/services/removeTokeknFromCookie";
 
@@ -25,8 +21,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </div>
             </Link>
             <div className=" border-gray-300 pl-3">
-              <p className="text-base font-bold">User Dashboard</p>
-              <p className="text-xs text-gray-500">Welcome back, User</p>
+              <p className="text-base font-bold">Admin Dashboard</p>
+              <p className="text-xs text-gray-500">Welcome back, Admin</p>
             </div>
           </div>
 

@@ -119,7 +119,6 @@ function ContactInfo() {
     setLoading(true);
     try {
       // Simulate API call
-      console.log("Form values:", values);
       
       // Show success message
       messageApi.success("Message sent successfully!");

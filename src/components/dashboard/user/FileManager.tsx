@@ -205,7 +205,6 @@ export default function FileManager({
     ],
   };
 
-  console.log({ breadcrumb });
   return (
     <div>
       {/* Hidden file input */}

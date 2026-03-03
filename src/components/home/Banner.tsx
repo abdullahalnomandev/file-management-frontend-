@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { Button } from "antd";
 import { ArrowRight } from "lucide-react";
+import { isUserLoggedIn } from "@/services/auth.service";
 
 const MainBanner = () => {
+
   return (
     <div>
       {/* Hero Section */}
@@ -56,6 +58,7 @@ const MainBanner = () => {
                 <Link href="/login">
                   <Button size="large" variant="link">
                     Sign In
+             
                   </Button>
                 </Link>
               </div>

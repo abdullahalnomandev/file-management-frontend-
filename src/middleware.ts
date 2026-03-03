@@ -15,8 +15,6 @@ export async function middleware(request: NextRequest) {
   let isTokenValid = false;
   let userRole: string | null = null;
 
-  console.log("userRole:", userRole);
-
   if (token) {
     try {
       const { payload } = await jwtVerify(

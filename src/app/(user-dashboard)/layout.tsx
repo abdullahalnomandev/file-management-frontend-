@@ -9,6 +9,7 @@ import { authKey } from "@/constants/storageKey";
 import { removeAccessTokenToCookie } from "@/services/removeTokeknFromCookie";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  
   const logout = async () => {
     sessionStorage.removeItem(authKey);
     await removeAccessTokenToCookie({ redirect: "/" });

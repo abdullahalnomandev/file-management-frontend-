@@ -55,7 +55,6 @@ function Login() {
         body: JSON.stringify(values),
       })) as { data: { access_token: string } } | null;
 
-      console.log("res", res?.data?.access_token);
       if (res && res.data.access_token) {
         sessionStorage.setItem(authKey, res?.data.access_token);
         router.push("/");

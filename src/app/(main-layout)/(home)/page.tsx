@@ -7,6 +7,5 @@ export default async function Home() {
     method: "GET",
   },"server") as { data: IPackage[] };
 
-  console.log("pricing", pricing);
   return <HomePage pricing={pricing?.data} />;
 }

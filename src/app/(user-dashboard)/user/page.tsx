@@ -45,7 +45,6 @@ export default async function UserDashboardPage({
     ),
   ]);
 
-  console.log(folder.data);
 
   return (
     <UserDashbaord
