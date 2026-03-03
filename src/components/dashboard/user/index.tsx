@@ -1,11 +1,10 @@
-import { IFile, IFolder } from "@/types";
 import FileManager from "./FileManager";
 
-const UserDashbaord = ({ folders, files } :{folders: any, files: any}) => {
+const UserDashbaord = ({ folders, files, parentId,breadcrumb } :{folders: any, files: any, parentId?: string, breadcrumb?: any}) => {
 
   return (
     <div className="container pt-4">
-      <FileManager folders={folders} files={files}  />
+      <FileManager folders={folders} files={files} parentId={parentId} breadcrumb={breadcrumb} />
     </div>
   );
 };

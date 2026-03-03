@@ -57,15 +57,15 @@ const File = ({ file, handleEdit, handleDeleteFile }: any) => {
                     trigger={["click"]}
                     menu={{
                         items: [
-                            {
-                                key: "edit",
-                                icon: <EditOutlined />,
-                                label: "Edit",
-                                onClick: (e: any) => {
-                                    handleEdit(file, "file")
-                                    e.stopPropagation();
-                                },
-                            },
+                            // {
+                            //     key: "edit",
+                            //     icon: <EditOutlined />,
+                            //     label: "Edit",
+                            //     onClick: (e: any) => {
+                            //         handleEdit(file, "file")
+                            //         e.stopPropagation();
+                            //     },
+                            // },
                             {
                                 key: "delete",
                                 danger: true,
